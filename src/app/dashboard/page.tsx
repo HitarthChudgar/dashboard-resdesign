@@ -25,8 +25,11 @@ export default function Page() {
             {/* Scrollable Content */}
             <div className="flex-1 flex justify-center overflow-y-auto">
               {/* Content Wrapper with Max Width */}
-              <div className="w-full max-w-[1440px] flex flex-col gap-8 p-4 pt-4">
-                <WorkspaceHeader workspaceName="Nobu Residences Toronto" />
+              <div className="w-full max-w-[1440px] flex flex-col gap-8 p-4">
+                {/* Workspace Header (included in scrollable area) */}
+                <div className="shrink-0">
+                  <WorkspaceHeader />
+                </div>
                 <MetricCards />
                 <MetricCharts />
                 <div className="grid grid-cols-2 gap-4">

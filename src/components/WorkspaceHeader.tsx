@@ -39,45 +39,53 @@ export default function WorkspaceHeader({
   workspaceName = "Nobu Residences Toronto",
   cityName = "Toronto",
 }: WorkspaceHeaderProps) {
-  const [weather, setWeather] = useState({
+  const [weather, setWeather] = useState<{
+    temperature: number | null;
+    condition: string;
+    icon: JSX.Element;
+  }>({
     temperature: null,
     condition: "",
-    icon: <Cloud className="h-5 w-5" />, // Default icon
+    icon: <Cloud className="h-5 w-5" />,
   });
 
   useEffect(() => {
     async function fetchWeather() {
       const API_KEY = "1211f45d277089e1867a0de5d0dc103c";
 
-      // Fetch the latitude and longitude of the city
-      const geocodeEndpoint = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_KEY}`;
       try {
+        const baseUrl = "https://api.openweathermap.org";
+        const geocodeEndpoint = `${baseUrl}/geo/1.0/direct?q=${encodeURIComponent(
+          cityName
+        )}&limit=1&appid=${API_KEY}`;
+
         const geocodeResponse = await fetch(geocodeEndpoint);
         const geocodeData = await geocodeResponse.json();
 
         if (geocodeResponse.ok && geocodeData.length > 0) {
-          const { lat, lon } = geocodeData[0];
+          const { lat, lon } = geocodeData[0] || {};
 
-          // Step 2: Use latitude and longitude to fetch weather data
-          const weatherEndpoint = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`;
-          const weatherResponse = await fetch(weatherEndpoint);
-          const weatherData = await weatherResponse.json();
+          if (lat !== undefined && lon !== undefined) {
+            const weatherEndpoint = `${baseUrl}/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`;
+            const weatherResponse = await fetch(weatherEndpoint);
+            const weatherData = await weatherResponse.json();
 
-          if (weatherResponse.ok) {
-            setWeather({
-              temperature: Math.round(weatherData.main.temp),
-              condition: weatherData.weather[0].main,
-              icon: conditionMapping[weatherData.weather[0].main] || (
-                <Cloud className="h-5 w-5" />
-              ),
-            });
-          } else {
-            console.error("Weather API error:", weatherData);
-            setWeather({
-              temperature: null,
-              condition: "Error",
-              icon: <Cloud className="h-5 w-5" />,
-            });
+            if (weatherResponse.ok && weatherData?.main?.temp !== undefined) {
+              setWeather({
+                temperature: Math.round(weatherData.main.temp),
+                condition: weatherData.weather?.[0]?.main || "Unknown",
+                icon: conditionMapping[
+                  weatherData.weather?.[0]?.main || ""
+                ] || <Cloud className="h-5 w-5" />,
+              });
+            } else {
+              console.error("Weather API error:", weatherData);
+              setWeather({
+                temperature: null,
+                condition: "Error",
+                icon: <Cloud className="h-5 w-5" />,
+              });
+            }
           }
         } else {
           console.error("Geocode API error or city not found:", geocodeData);
