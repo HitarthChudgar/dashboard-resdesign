@@ -118,7 +118,7 @@ export default function Calendar() {
   const totalDays = Math.ceil((firstDayOfMonth + daysInMonth) / 7) * 7;
 
   return (
-    <div className="min-h-screen shadow-none">
+    <div className="min-h-screen rounded-xl shadow-none">
       <Card className="pt-2 pb-3 px-3 w-auto shadow-none">
         <div className="flex items-center gap-2 mb-4">
           <CalendarIcon className="h-5 w-5 text-black" />

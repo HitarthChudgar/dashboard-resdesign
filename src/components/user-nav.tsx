@@ -40,29 +40,29 @@ export function UserNav() {
       >
         <DropdownMenuGroup>
           <DropdownMenuItem className="p-2 rounded-lg">
-            <UserCircle className="mr-2 h-4 w-4" />
+            <UserCircle className="h-4 w-4" />
             <span className="text-sm font-medium">Setup</span>
           </DropdownMenuItem>
           <DropdownMenuItem className="p-2 rounded-lg">
-            <Mail className="mr-2 h-4 w-4" />
+            <Mail className="h-4 w-4" />
             <span className="text-sm font-medium">Email Preferences</span>
           </DropdownMenuItem>
           <DropdownMenuItem className="p-2 rounded-lg">
-            <KeyRound className="mr-2 h-4 w-4" />
+            <KeyRound className="h-4 w-4" />
             <span className="text-sm font-medium">Change Password</span>
           </DropdownMenuItem>
           <DropdownMenuItem className="p-2 rounded-lg">
-            <CreditCard className="mr-2 h-4 w-4" />
+            <CreditCard className="h-4 w-4" />
             <span className="text-sm font-medium">Billing Details</span>
           </DropdownMenuItem>
           <DropdownMenuItem className="p-2 rounded-lg">
-            <FileSpreadsheet className="mr-2 h-4 w-4" />
+            <FileSpreadsheet className="h-4 w-4" />
             <span className="text-sm font-medium">Community Data Sheet</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="p-2 rounded-lg">
-          <LogOut className="mr-2 h-4 w-4" />
+          <LogOut className="h-4 w-4" />
           <span className="text-sm font-medium">Log out</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
