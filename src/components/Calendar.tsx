@@ -119,7 +119,7 @@ export default function Calendar() {
 
   return (
     <div className="min-h-screen rounded-xl shadow-none">
-      <Card className="pt-2 pb-3 px-3 w-auto shadow-none">
+      <Card className="pt-2 pb-3 px-3 rounded-xl w-auto shadow-none">
         <div className="flex items-center gap-2 mb-4">
           <CalendarIcon className="h-5 w-5 text-black" />
           <h2 className="text-[14px] font-semibold">Events</h2>
