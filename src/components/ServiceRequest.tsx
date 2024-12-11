@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  WrenchIcon,
-  CalendarIcon,
-  ChevronDown,
-  ChevronRight,
-} from "lucide-react";
+import { WrenchIcon, CalendarIcon } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import {
   Accordion,

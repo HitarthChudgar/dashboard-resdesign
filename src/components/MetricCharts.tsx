@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Wrench, Building2, MessageSquareText, Calendar } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import {
   Bar,
   BarChart,
@@ -77,7 +77,6 @@ const MetricCard = ({
   total,
   data,
   layout = "horizontal",
-  showLegend = false,
 }: {
   title: string;
   icon: React.ElementType;
