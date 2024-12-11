@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+#root {
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Public Sans", sans-serif;
+  font-optical-sizing: auto;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+/* Hide scrollbar by default */
+.group::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit browsers */
+}
+
+.group {
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+/* Show scrollbar only on hover */
+.group:hover::-webkit-scrollbar {
+  width: 4px; /* Only the handle (thumb) will be visible */
+}
+
+.group:hover::-webkit-scrollbar-thumb {
+  background-color: #a0aec0; /* Thumb color */
+  border-radius: 9999px; /* Make it rounded */
+}
+
+.group:hover::-webkit-scrollbar-track {
+  background: transparent; /* Ensure the track is hidden */
+}
