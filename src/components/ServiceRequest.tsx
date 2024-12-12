@@ -20,7 +20,7 @@ const ServiceRequestItem = ({ title, date, description, id }) => {
         <div className="flex items-center gap-2">
           <div>
             <h3 className="text-[16px] font-semibold text-left">{title}</h3>
-            <p className="text-[14px] font-semibold text-gray-500">{date}</p>
+            <p className="text-[14px] font-normal text-gray-500">{date}</p>
           </div>
         </div>
       </AccordionTrigger>
