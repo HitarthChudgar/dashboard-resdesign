@@ -27,37 +27,37 @@ const amenities: AmenityCard[] = [
   {
     title: "Gym",
     price: 5,
-    image: "dist/golf.png?height=200&width=400",
+    image: "/golf.png?height=200&width=400",
   },
   {
     title: "Pool Area Beach Chairs",
     price: 10,
-    image: "dist/pool.png?height=200&width=400",
+    image: "/pool.png?height=200&width=400",
   },
   {
     title: "Golf Simulator",
     price: 50,
-    image: "dist/golf.png?height=200&width=400",
+    image: "/golf.png?height=200&width=400",
   },
   {
     title: "Tennis Court",
     price: 15,
-    image: "dist/tennis.png?height=200&width=400",
+    image: "/tennis.png?height=200&width=400",
   },
   {
     title: "Spa Treatment",
     price: 75,
-    image: "dist/spa.png?height=200&width=400",
+    image: "/spa.png?height=200&width=400",
   },
   {
     title: "Yoga Class",
     price: 20,
-    image: "dist/yoga.png?height=200&width=400",
+    image: "/yoga.png?height=200&width=400",
   },
   {
     title: "Bike Rental",
     price: 12,
-    image: "dist/bike.png?height=200&width=400",
+    image: "/bike.png?height=200&width=400",
   },
 ];
 
