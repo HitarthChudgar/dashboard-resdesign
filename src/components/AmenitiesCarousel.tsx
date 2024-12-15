@@ -125,7 +125,7 @@ export default function AmenitiesCarousel() {
                       ${amenity.price}
                     </p>
                   </CardHeader>
-                  <CardContent className="p-3">
+                  <CardContent className="px-3 py-0">
                     <div className="overflow-hidden rounded-xl">
                       <img
                         src={amenity.image}
