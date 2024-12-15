@@ -27,7 +27,7 @@ const amenities: AmenityCard[] = [
   {
     title: "Gym",
     price: 5,
-    image: "/golf.png?height=200&width=400",
+    image: "/gym.png?height=200&width=400",
   },
   {
     title: "Pool Area Beach Chairs",
