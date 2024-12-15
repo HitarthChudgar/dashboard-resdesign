@@ -149,7 +149,7 @@ export default function AmenitiesCarousel() {
           size="icon"
           className="rounded-xl absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10 shadow-sm"
           onClick={scrollPrev}
-          style={{ transform: "translate(-50%, -50%)" }}
+          style={{ transform: "translate(-40%, -50%)" }}
         >
           <ChevronLeft className="h-4 w-4" />
           <span className="sr-only">Previous page</span>
@@ -159,7 +159,7 @@ export default function AmenitiesCarousel() {
           size="icon"
           className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10 shadow-sm"
           onClick={scrollNext}
-          style={{ transform: "translate(50%, -50%)" }}
+          style={{ transform: "translate(40%, -50%)" }}
         >
           <ChevronRight className="h-4 w-4" />
           <span className="sr-only">Next page</span>
