@@ -6,6 +6,7 @@ import MetricCharts from "@/components/MetricCharts";
 import Calendar from "@/components/Calendar";
 import ServiceRequest from "@/components/ServiceRequest";
 import { Navigation } from "@/components/sidebar";
+import AmenitiesCarousel from "@/components/AmenitiesCarousel";
 
 export default function Page() {
   return (
@@ -29,6 +30,9 @@ export default function Page() {
                 {/* Workspace Header (included in scrollable area) */}
                 <div className="shrink-0">
                   <WorkspaceHeader />
+                </div>
+                <div className="shrink-0">
+                  <AmenitiesCarousel />
                 </div>
                 <MetricCards />
                 <MetricCharts />
