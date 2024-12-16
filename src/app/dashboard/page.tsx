@@ -7,6 +7,9 @@ import Calendar from "@/components/Calendar";
 import ServiceRequest from "@/components/ServiceRequest";
 import { Navigation } from "@/components/sidebar";
 import AmenitiesCarousel from "@/components/AmenitiesCarousel";
+import SecurityMetrics from "@/components/SecurityMetrics";
+import StorageMetrics from "@/components/StorageMetrics";
+import ConsentMetrics from "@/components/ConsentMetrics";
 
 export default function Page() {
   return (
@@ -36,6 +39,11 @@ export default function Page() {
                 </div>
                 <MetricCards />
                 <MetricCharts />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <SecurityMetrics />
+                  <StorageMetrics />
+                  <ConsentMetrics />
+                </div>
                 <div className="grid grid-cols-2 gap-4">
                   <Calendar />
                   <ServiceRequest />
