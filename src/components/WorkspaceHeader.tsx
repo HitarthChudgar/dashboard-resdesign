@@ -34,7 +34,7 @@ const conditionMapping: { [key: string]: JSX.Element } = {
 };
 
 export default function WorkspaceHeader({
-  backgroundImage = "/toronto.png",
+  backgroundImage = "/nobutoronto.png",
   workspaceLogo = "/nobu.png",
   workspaceName = "Nobu Residences Toronto",
   cityName = "Toronto",
