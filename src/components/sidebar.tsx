@@ -10,7 +10,6 @@ import {
   Shield,
   BadgeDollarSign,
   BookOpen,
-  HelpCircle,
   PanelLeftClose,
   ChevronDown,
   ChevronRight,

@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  ClipboardList,
-  Calendar,
-  ChevronDown,
-  ChevronRight,
-} from "lucide-react";
+import { ClipboardList, Calendar, ChevronRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import {
   Accordion,
@@ -16,8 +11,6 @@ import {
 import { Button } from "@/components/ui/button";
 
 const TaskItem = ({ title, date, description, id }) => {
-  const isExpanded = id === "1"; // First item expanded by default
-
   return (
     <AccordionItem
       value={id}
