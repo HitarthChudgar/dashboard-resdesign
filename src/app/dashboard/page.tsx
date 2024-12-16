@@ -10,6 +10,8 @@ import AmenitiesCarousel from "@/components/AmenitiesCarousel";
 import SecurityMetrics from "@/components/SecurityMetrics";
 import StorageMetrics from "@/components/StorageMetrics";
 import ConsentMetrics from "@/components/ConsentMetrics";
+import RecentTasks from "@/components/RecentTasks";
+import Announcements from "@/components/Announcements";
 
 export default function Page() {
   return (
@@ -19,7 +21,7 @@ export default function Page() {
         <Navigation />
         {/* Main Content Area */}
         <SidebarInset>
-          <div className="flex flex-col h-full overflow-hidden">
+          <div className="flex flex-col h-full overflow-hidden mb-6">
             {/* Header */}
             <div className="flex justify-center">
               <div className="w-full max-w-[1440px]">
@@ -47,6 +49,10 @@ export default function Page() {
                 <div className="grid grid-cols-2 gap-4">
                   <Calendar />
                   <ServiceRequest />
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <Announcements />
+                  <RecentTasks />
                 </div>
               </div>
             </div>
