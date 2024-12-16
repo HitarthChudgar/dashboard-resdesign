@@ -3,17 +3,17 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import {
-  Calendar,
-  ChevronDown,
-  HelpCircle,
   Home,
-  Library,
-  PanelLeftClose,
-  Settings,
-  Users2,
+  User,
+  MessageSquare,
+  FileText,
+  Shield,
   BadgeDollarSign,
-  BarChart3,
-  CheckSquare,
+  BookOpen,
+  HelpCircle,
+  PanelLeftClose,
+  ChevronDown,
+  ChevronRight,
 } from "lucide-react";
 import {
   Collapsible,
@@ -26,6 +26,12 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { WorkspaceSwitcher } from "./workspace-switcher";
 
 interface NavItem {
@@ -37,64 +43,84 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    title: "Dashboard",
-    href: "/dashboard",
+    title: "Home",
+    href: "/",
     icon: Home,
   },
   {
-    title: "Tasks",
-    href: "/tasks",
-    icon: CheckSquare,
-  },
-  {
-    title: "Calendar",
-    href: "/calendar",
-    icon: Calendar,
-  },
-  {
-    title: "Community",
-    icon: Users2,
+    title: "My Account",
+    icon: User,
     items: [
-      { title: "Announcements", href: "/community/announcements" },
-      { title: "Discussions", href: "/community/discussions" },
-      { title: "Classified", href: "/community/classified" },
-      { title: "Surveys", href: "/community/surveys" },
-      { title: "Voting", href: "/community/voting" },
-      { title: "Store", href: "/community/store" },
-      { title: "Directory", href: "/community/directory" },
+      { title: "Email Preferences", href: "/account/email" },
+      { title: "Package Preferences", href: "/account/packages" },
+      { title: "Change Password", href: "/account/password" },
+    ],
+  },
+  {
+    title: "Communication",
+    icon: MessageSquare,
+    items: [
+      { title: "Announcements", href: "/communication/announcements" },
+      { title: "Classified Ads", href: "/communication/classified" },
+      { title: "Discussion Forum", href: "/communication/forum" },
+      { title: "Events", href: "/communication/events" },
+      { title: "File Library", href: "/communication/library" },
+      { title: "Phone Book", href: "/communication/phonebook" },
+      { title: "Print Jobs", href: "/communication/print" },
+      { title: "Service Request", href: "/communication/service" },
+      { title: "Survey", href: "/communication/survey" },
+    ],
+  },
+  {
+    title: "Record Keeping",
+    icon: FileText,
+    items: [
+      { title: "Amenity Booking", href: "/records/amenity" },
+      { title: "Asset Management", href: "/records/assets" },
+      { title: "Electronic Voting", href: "/records/voting" },
+      { title: "Maintenance Tracking", href: "/records/maintenance" },
+      { title: "Make a Payment", href: "/records/payment" },
+      { title: "Reports", href: "/records/reports" },
+      { title: "Status Certificate", href: "/records/certificate" },
+      { title: "Store", href: "/records/store" },
+      { title: "Tasks", href: "/records/tasks" },
+      { title: "Unit File", href: "/records/unit" },
+      { title: "Violation Tracking", href: "/records/violations" },
+    ],
+  },
+  {
+    title: "Security",
+    icon: Shield,
+    items: [
+      { title: "Security & Concierge", href: "/security/concierge" },
+      { title: "Security Patrol", href: "/security/patrol" },
+      { title: "Packages", href: "/security/packages" },
+      { title: "Valet Parking", href: "/security/valet" },
+      { title: "Visitors", href: "/security/visitors" },
     ],
   },
   {
     title: "Accounting",
     icon: BadgeDollarSign,
     items: [
+      { title: "Accounts Payable", href: "/accounting/payable" },
       { title: "Unit Ledger", href: "/accounting/ledger" },
-      { title: "Invoices", href: "/accounting/invoices" },
-      { title: "Expenses", href: "/accounting/expenses" },
-      { title: "Transactions", href: "/accounting/transactions" },
-      { title: "Statements", href: "/accounting/statements" },
+      { title: "Purchase Order", href: "/accounting/purchase" },
     ],
   },
   {
-    title: "Library",
-    href: "/library",
-    icon: Library,
-  },
-  {
-    title: "Analytics",
-    href: "/analytics",
-    icon: BarChart3,
-  },
-  {
-    title: "Admin",
-    href: "/admin",
-    icon: Settings,
+    title: "Resources",
+    icon: BookOpen,
+    items: [
+      { title: "Training", href: "/resources/training" },
+      { title: "User Guide", href: "/resources/guide" },
+    ],
   },
 ];
 
 export function Navigation() {
   const [isCollapsed, setIsCollapsed] = React.useState(false);
-  const [activeItem, setActiveItem] = React.useState("Dashboard");
+  const [activeItem, setActiveItem] = React.useState("Home");
   const [activeSubItem, setActiveSubItem] = React.useState("");
   const [expandedItems, setExpandedItems] = React.useState<string[]>([]);
 
@@ -126,6 +152,65 @@ export function Navigation() {
         <div className="flex-1 overflow-y-auto px-4">
           <nav className="grid gap-2 pb-20">
             {navItems.map((item, index) => {
+              if (item.title === "My Account") {
+                return (
+                  <DropdownMenu key={index}>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <DropdownMenuTrigger asChild>
+                          <button
+                            className={cn(
+                              "flex justify-between items-center gap-3 rounded-xl p-3 text-gray-900 transition-colors w-full h-11",
+                              isCollapsed && "justify-center",
+                              activeItem === item.title
+                                ? "bg-white border border-gray-200"
+                                : "hover:bg-[#0F0F0F]/[0.08] active:bg-[#0F0F0F]/[0.12]"
+                            )}
+                          >
+                            <div className="flex items-center gap-3 justify-between">
+                              <item.icon className="h-5 w-5 flex-shrink-0" />
+                              {!isCollapsed && (
+                                <span className="text-[15px]">
+                                  {item.title}
+                                </span>
+                              )}
+                            </div>
+                            {!isCollapsed && (
+                              <ChevronRight className="h-4 w-4" />
+                            )}
+                          </button>
+                        </DropdownMenuTrigger>
+                      </TooltipTrigger>
+                      {isCollapsed && (
+                        <TooltipContent
+                          side="right"
+                          className="bg-black text-white rounded-lg border-none"
+                        >
+                          {item.title}
+                        </TooltipContent>
+                      )}
+                    </Tooltip>
+                    <DropdownMenuContent
+                      align="start"
+                      side="right"
+                      className="w-64 rounded-xl p-2"
+                      forceMount
+                    >
+                      {item.items?.map((subItem, subIndex) => (
+                        <DropdownMenuItem
+                          key={subIndex}
+                          className="flex items-center justify-between p-2 rounded-lg cursor-pointer"
+                        >
+                          <span className="text-sm font-medium">
+                            {subItem.title}
+                          </span>
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                );
+              }
+
               if (item.items) {
                 const isActive = activeItem === item.title;
                 return (
@@ -215,13 +300,6 @@ export function Navigation() {
                       onClick={() => {
                         setActiveItem(item.title);
                         setActiveSubItem("");
-                        setExpandedItems((prev) =>
-                          item.items
-                            ? prev.includes(item.title)
-                              ? prev.filter((i) => i !== item.title)
-                              : [...prev, item.title]
-                            : prev
-                        );
                       }}
                     >
                       <item.icon className="h-5 w-5 flex-shrink-0" />
@@ -253,22 +331,6 @@ export function Navigation() {
         />
         <div className="border-t border-gray-200 p-4 bg-[#F3F3F3] relative z-20">
           <nav className="grid gap-2">
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <button className="flex items-center gap-3 rounded-xl p-3 text-gray-900 transition-colors hover:bg-[#0F0F0F]/[0.08] w-full h-11">
-                  <HelpCircle className="h-5 w-5" />
-                  {!isCollapsed && <span className="text-[15px]">Help</span>}
-                </button>
-              </TooltipTrigger>
-              {isCollapsed && (
-                <TooltipContent
-                  side="right"
-                  className="bg-black text-white rounded-lg border-none"
-                >
-                  Help
-                </TooltipContent>
-              )}
-            </Tooltip>
             <Tooltip>
               <TooltipTrigger asChild>
                 <button
