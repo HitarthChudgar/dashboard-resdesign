@@ -120,10 +120,13 @@ export default function RecentTasks() {
           <Calendar className="h-3.5 w-3.5" />
           All Time
         </Button>
-        <div className="flex items-center gap-1 text-sm">
-          <span>View all</span>
-          <ChevronRight className="h-4 w-4" />
-        </div>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-7 text-xs rounded-full inline-flex items-center bg-gray-100 hover:bg-gray-200"
+        >
+          View all →
+        </Button>
       </div>
     </Card>
   );
