@@ -36,9 +36,6 @@ export default function Page() {
                 <div className="shrink-0">
                   <WorkspaceHeader />
                 </div>
-                <div className="shrink-0">
-                  <AmenitiesCarousel />
-                </div>
                 <MetricCards />
                 <MetricCharts />
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -53,6 +50,9 @@ export default function Page() {
                 <div className="grid grid-cols-2 gap-4">
                   <Announcements />
                   <RecentTasks />
+                </div>
+                <div className="shrink-0">
+                  <AmenitiesCarousel />
                 </div>
               </div>
             </div>
