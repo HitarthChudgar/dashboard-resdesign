@@ -122,6 +122,7 @@ export function Navigation() {
   const [activeItem, setActiveItem] = React.useState("Home");
   const [activeSubItem, setActiveSubItem] = React.useState("");
   const [expandedItems, setExpandedItems] = React.useState<string[]>([]);
+  const [openDropdown, setOpenDropdown] = React.useState<string | null>(null);
 
   const toggleExpanded = (title: string) => {
     setExpandedItems((prev) =>
@@ -153,10 +154,20 @@ export function Navigation() {
             {navItems.map((item, index) => {
               if (item.title === "My Account") {
                 return (
-                  <DropdownMenu key={index}>
+                  <DropdownMenu
+                    key={index}
+                    open={openDropdown === item.title}
+                    onOpenChange={(open) =>
+                      setOpenDropdown(open ? item.title : null)
+                    }
+                  >
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <DropdownMenuTrigger asChild>
+                        <DropdownMenuTrigger
+                          asChild
+                          onMouseEnter={() => setOpenDropdown(item.title)}
+                          onMouseLeave={() => setOpenDropdown(null)}
+                        >
                           <button
                             className={cn(
                               "flex justify-between items-center gap-3 rounded-xl p-3 text-gray-900 transition-colors w-full h-11",
@@ -194,6 +205,8 @@ export function Navigation() {
                       side="right"
                       className="w-64 rounded-xl p-2"
                       forceMount
+                      onMouseEnter={() => setOpenDropdown(item.title)}
+                      onMouseLeave={() => setOpenDropdown(null)}
                     >
                       {item.items?.map((subItem, subIndex) => (
                         <DropdownMenuItem
