@@ -1,6 +1,6 @@
 "use client";
 
-import { ClipboardList, Calendar, ChevronRight } from "lucide-react";
+import { ClipboardList, Calendar } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import {
   Accordion,

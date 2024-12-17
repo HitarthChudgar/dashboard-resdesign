@@ -1,6 +1,6 @@
 "use client";
 
-import { Megaphone, Calendar, ChevronRight } from "lucide-react";
+import { Megaphone, Calendar } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import {
   Accordion,
