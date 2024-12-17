@@ -94,7 +94,7 @@ const MetricCard = ({
                 tickMargin={10}
                 axisLine={false}
                 interval={0}
-                tick={{ fontSize: 12 }}
+                tick={{ fontSize: 16 }}
               />
               <YAxis hide />
               <Tooltip
