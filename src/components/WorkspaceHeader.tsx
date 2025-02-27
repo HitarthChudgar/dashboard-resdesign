@@ -51,7 +51,7 @@ export default function WorkspaceHeader({
 
   useEffect(() => {
     async function fetchWeather() {
-      const API_KEY = "1211f45d277089e1867a0de5d0dc103c";
+      //const API_KEY = "1211f45d277089e1867a0de5d0dc103c";
 
       try {
         const baseUrl = "https://api.openweathermap.org";
